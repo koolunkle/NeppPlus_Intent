@@ -29,6 +29,10 @@ class MainActivity : AppCompatActivity() {
 
 //            메시지 화면으로 이동. Intent 활용
             val myIntent = Intent(this, ViewMessageActivity::class.java)
+
+//            필요 데이터를 첨부하는 코드
+            myIntent.putExtra("message", inputMessage)
+
             startActivity(myIntent)
 
         }
