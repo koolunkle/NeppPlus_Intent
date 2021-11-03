@@ -94,6 +94,13 @@
         android:layout_height="wrap_content"
         android:text="네이버 웹 링크 (VIEW)" />
 
+    <Button
+        android:id="@+id/btnKakaoStore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="카카오톡 다운로드 (VIEW)" />
+
+
 
 
 </LinearLayout>
