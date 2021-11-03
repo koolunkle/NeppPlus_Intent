@@ -3,6 +3,7 @@ package com.neppplus.intent_20211102
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -50,8 +51,36 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(myIntent, REQ_CODE_FOR_NICKNAME)
 
 
+
+        }
+
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+//        결과를 받아서 돌아오면 실행되는 함수
+
+        Log.d("메인화면", "결과를 받아오면 무조건 실행됨")
+
+//        구별해야할 요소 1) 어떤걸 가지러 다녀온건지? - requestCode  2) 확인/취소 구별  3) 첨부한 데이터
+        Log.d("리퀘스트코드", requestCode.toString())
+
+//        닉네임을 가지러 다녀온게 맞는가?
+        if (requestCode == REQ_CODE_FOR_NICKNAME) {
+
+//            확인이 눌린게 맞는가?
+            if (resultCode == RESULT_OK) {
+
+//                담아준 결과용 Intent => data 에 담겨있다. => "nick" 으로 이름붙인 String을 꺼내주자.
+                val newNickname = data?.getStringExtra("nick")
+
+                txtNickname.text = newNickname
+
+            }
+
         }
 
 
     }
-}
