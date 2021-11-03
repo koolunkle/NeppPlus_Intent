@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             val inputPhoneNum = edtPhoneNum.text.toString()
 
             val myUri = Uri.parse("tel:${inputPhoneNum}")
-            val myIntent = Intent( Intent.ACTION_CALL, myUri )
+            val myIntent = Intent(Intent.ACTION_CALL, myUri)
             startActivity(myIntent)
         }
 
@@ -80,7 +80,10 @@ class MainActivity : AppCompatActivity() {
             val inputPhoneNum = edtPhoneNum.text.toString()
 
             val myUri = Uri.parse("smsto:${inputPhoneNum}")
-            val myIntent = Intent( Intent.ACTION_SENDTO, myUri )
+            val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
+
+            myIntent.putExtra("sms_body", "자동 입력할 문구")
+
             startActivity(myIntent)
         }
 
