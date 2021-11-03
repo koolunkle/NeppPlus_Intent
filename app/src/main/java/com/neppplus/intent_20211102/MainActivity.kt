@@ -6,6 +6,9 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    val REQ_CODE_FOR_NICKNAME = 1000
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -15,9 +18,9 @@ class MainActivity : AppCompatActivity() {
 //            버튼이 눌리면 > OtherActivity로 이동하자. (화면 전환)
 
 //            Intent로 어디서 출발 / 어디로 도착하는지 정보 설정. => 변수에 저장.
-            val myIntent = Intent( this, OtherActivity::class.java )
+            val myIntent = Intent(this, OtherActivity::class.java)
 //            출발/도착 정보를 가지고 이동
-            startActivity( myIntent )
+            startActivity(myIntent)
 
 
         }
@@ -36,6 +39,19 @@ class MainActivity : AppCompatActivity() {
             startActivity(myIntent)
 
         }
+
+        btnEditNickname.setOnClickListener {
+
+//            닉네임을 변경하기 위한 화면 이동. (Intent 3 예시)
+
+            val myIntent = Intent(this, EditNicknameActivity::class.java)
+
+//            넘어갔다가 (어떤 데이터)를 들고 "돌아올것이다" 명시.
+            startActivityForResult(myIntent, REQ_CODE_FOR_NICKNAME)
+
+
+        }
+
 
     }
 }
