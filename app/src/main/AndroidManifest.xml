@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Intent_20211102">
         <activity
+            android:name=".EditNicknameActivity"
+            android:exported="true" />
+        <activity
             android:name=".ViewMessageActivity"
             android:exported="true" />
         <activity
